@@ -5,9 +5,18 @@ This is a very rough example of how to use the session and security dependecies 
 
 ### Setup
 
-* Run the SQL file. It will create a database and insert a new table.
+**Database Settings**
+
+* Create a database
 * Update the `database` settings in `app/config/config.php`
 * Update the `baseUri` in `app/config/config.php`
+
+**Migration**
+
+If you have [Phalcon Dev Tools](http://docs.phalconphp.com/en/latest/reference/tools.html) installed you can run the included migration. Just run `phalcon migration run`. If you don't have the dev tools, run the SQL file instead.
+
+**Create user and login**
+
 * Create a new user at `base_url/users/new`
 * Visit `base_url/session` to login
 * See green and be happy
