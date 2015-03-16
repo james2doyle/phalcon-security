@@ -6,7 +6,8 @@ This is a very rough example of how to use the session and security dependecies 
 ### Setup
 
 * Run the SQL file. It will create a database and insert a new table.
-* Update the baseUri in `app/config/config.php`
+* Update the `database` settings in `app/config/config.php`
+* Update the `baseUri` in `app/config/config.php`
 * Create a new user at `base_url/users/new`
 * Visit `base_url/session` to login
 * See green and be happy
