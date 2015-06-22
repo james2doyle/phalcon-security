@@ -50,10 +50,6 @@ class SessionController extends ControllerBase
     public function logoutAction()
     {
         $this->session->remove('auth-identity');
-        return $this->dispatcher->forward(array(
-            "controller" => "session",
-            "action" => "index"
-            ));
     }
 
     public function failedAction()
