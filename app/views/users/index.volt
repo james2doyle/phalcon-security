@@ -1,11 +1,11 @@
 
-<?php echo $this->getContent() ?>
+{{ get_content() }}
 
 <div align="right">
-    <?php echo $this->tag->linkTo(array("users/new", "Create users")) ?>
+    {{ link_to("users/new", "Create users") }}
 </div>
 
-<?php echo $this->tag->form(array("users/search", "autocomplete" => "off")) ?>
+{{ form('users/search', 'method': 'post', 'autocomplete': 'off') }}
 
 <div align="center">
     <h1>Search users</h1>
@@ -17,7 +17,7 @@
             <label for="id">Id</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("id", "type" => "number")) ?>
+            {{ text_field("id", "type": "number") }}
         </td>
     </tr>
     <tr>
@@ -25,7 +25,7 @@
             <label for="username">Username</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("username", "size" => 30)) ?>
+            {{ text_field("username", "size": 30) }}
         </td>
     </tr>
     <tr>
@@ -33,7 +33,7 @@
             <label for="password">Password</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("password", "size" => 30)) ?>
+            {{ text_field("password", "size": 30) }}
         </td>
     </tr>
     <tr>
@@ -41,14 +41,14 @@
             <label for="full_name">Full Of Name</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("full_name", "size" => 30)) ?>
+            {{ text_field("full_name", "size": 30) }}
         </td>
     </tr>
 
     <tr>
         <td></td>
-        <td><?php echo $this->tag->submitButton("Search") ?></td>
+        <td>{{ submit_button("Search") }}</td>
     </tr>
 </table>
 
-</form>
+{{ end_form() }}

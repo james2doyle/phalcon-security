@@ -1,14 +1,14 @@
 
-<?php echo $this->tag->form("users/create") ?>
+{{ form('users/create', 'method': 'post', 'autocomplete': 'off') }}
 
 <table width="100%">
     <tr>
-        <td align="left"><?php echo $this->tag->linkTo(array("users", "Go Back")) ?></td>
-        <td align="right"><?php echo $this->tag->submitButton("Save") ?></td>
+        <td align="left">{{ link_to("users", "Go Back") }}</td>
+        <td align="right">{{ submit_button("Save") }}</td>
     </tr>
 </table>
 
-<?php echo $this->getContent(); ?>
+{{ get_content() }}
 
 <div align="center">
     <h1>Create users</h1>
@@ -20,7 +20,7 @@
             <label for="username">Username</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("username", "size" => 30)) ?>
+            {{ text_field("username", "size": 30) }}
         </td>
     </tr>
     <tr>
@@ -28,7 +28,7 @@
             <label for="password">Password</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->passwordField(array("password", "size" => 30)) ?>
+            {{ password_field("password", "size": 30) }}
         </td>
     </tr>
     <tr>
@@ -36,13 +36,13 @@
             <label for="full_name">Full Of Name</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("full_name", "size" => 30)) ?>
+            {{ text_field("full_name", "size": 30) }}
         </td>
     </tr>
 
     <tr>
         <td></td>
-        <td><?php echo $this->tag->submitButton("Save") ?></td>
+        <td>{{ submit_button("Save") }}</td>
     </tr>
 </table>
 
