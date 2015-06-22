@@ -59,19 +59,19 @@ class SessionController extends ControllerBase
     public function failedAction()
     {
         $this->flash->error("login failed.");
-        return $this->dispatcher->forward(array(
-            "controller" => "session",
-            "action" => "index"
-            ));
+        // return $this->dispatcher->forward(array(
+        //     "controller" => "session",
+        //     "action" => "index"
+        //     ));
     }
 
     public function notfoundAction()
     {
         $this->flash->error("account was not found");
-        return $this->dispatcher->forward(array(
-            "controller" => "session",
-            "action" => "index"
-            ));
+        // return $this->dispatcher->forward(array(
+        //     "controller" => "session",
+        //     "action" => "index"
+        //     ));
     }
 
 }
