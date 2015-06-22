@@ -41,7 +41,7 @@ class SessionController extends ControllerBase
         } else {
             return $this->dispatcher->forward(array(
                 "controller" => "session",
-                "action" => "not-found"
+                "action" => "notfound"
                 ));
         }
 
@@ -50,6 +50,14 @@ class SessionController extends ControllerBase
     public function logoutAction()
     {
         $this->session->remove('auth-identity');
+        return $this->dispatcher->forward(array(
+            "controller" => "session",
+            "action" => "index"
+            ));
+    }
+
+    public function notfoundAction()
+    {
         return $this->dispatcher->forward(array(
             "controller" => "session",
             "action" => "index"
