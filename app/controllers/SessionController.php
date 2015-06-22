@@ -56,6 +56,14 @@ class SessionController extends ControllerBase
             ));
     }
 
+    public function failedAction()
+    {
+        return $this->dispatcher->forward(array(
+            "controller" => "session",
+            "action" => "index"
+            ));
+    }
+
     public function notfoundAction()
     {
         return $this->dispatcher->forward(array(
