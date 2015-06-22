@@ -28,21 +28,15 @@ $di->set('url', function () use ($config) {
  * Setting up the view component
  */
 $di->set('view', function () use ($config) {
-
     $view = new View();
-
     $view->setViewsDir($config->application->viewsDir);
-
     $view->registerEngines(array(
         '.volt' => function ($view, $di) use ($config) {
-
             $volt = new VoltEngine($view, $di);
-
             $volt->setOptions(array(
                 'compiledPath' => $config->application->cacheDir,
                 'compiledSeparator' => '_'
             ));
-
             return $volt;
         },
         '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
@@ -79,18 +73,20 @@ $di->set('modelsMetadata', function () {
  * Start the session the first time some component request the session service
  */
 $di->setShared('session', function () {
-    $session = new SessionAdapter();
+    // All variables created will prefixed with "my-app-1"
+    $session = new SessionAdapter(
+        array(
+            'uniqueId' => 'my-app-1'
+        )
+    );
     $session->start();
-
     return $session;
 });
 
 $di->set('security', function(){
-
     $security = new Security();
-
     // Set the password hashing factor to 12 rounds
+    // higher, means better security but slower performance
     $security->setWorkFactor(12);
-
     return $security;
 }, true);
