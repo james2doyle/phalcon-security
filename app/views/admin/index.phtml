@@ -13,7 +13,7 @@
         <p style="color: #C90017">You are not logged in!</p>
     <?php endif ?>
 
-    <?php echo $this->tag->form(array("session/login", "autocomplete" => "off")) ?>
+    <?php echo $this->tag->form(array("admin/login", "autocomplete" => "off")) ?>
 
         <input type="hidden" name="<?php echo $this->security->getTokenKey() ?>" value="<?php echo $this->security->getToken() ?>"/>
 
@@ -37,7 +37,7 @@
 
             <tr>
                 <td></td>
-                <td><?php echo $this->tag->submitButton("Login") ?><?php if ($this->session->get('auth-identity')): ?> or <a href="session/logout">Logout</a><?php endif; ?></td>
+                <td><?php echo $this->tag->submitButton("Login") ?><?php if ($this->session->get('auth-identity')): ?> or <a href="admin/logout">Logout</a><?php endif; ?></td>
             </tr>
         </table>
 

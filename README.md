@@ -18,5 +18,5 @@ If you have [Phalcon Dev Tools](http://docs.phalconphp.com/en/latest/reference/t
 **Create user and login**
 
 * Create a new user at `base_url/users/new`
-* Visit `base_url/session` to login
+* Visit `base_url/admin` to login
 * See green and be happy

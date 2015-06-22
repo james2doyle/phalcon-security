@@ -1,6 +1,6 @@
 <?php
 
-class SessionController extends ControllerBase
+class AdminController extends ControllerBase
 {
     /**
      * Index action
@@ -29,18 +29,18 @@ class SessionController extends ControllerBase
                     'username' => $user->username
                     ));
                 return $this->dispatcher->forward(array(
-                    "controller" => "session",
+                    "controller" => "admin",
                     "action" => "success"
                     ));
             } else {
                 return $this->dispatcher->forward(array(
-                    "controller" => "session",
+                    "controller" => "admin",
                     "action" => "failed"
                     ));
             }
         } else {
             return $this->dispatcher->forward(array(
-                "controller" => "session",
+                "controller" => "admin",
                 "action" => "notfound"
                 ));
         }
@@ -56,7 +56,7 @@ class SessionController extends ControllerBase
     {
         $this->flash->error("login failed.");
         // return $this->dispatcher->forward(array(
-        //     "controller" => "session",
+        //     "controller" => "admin",
         //     "action" => "index"
         //     ));
     }
@@ -65,7 +65,7 @@ class SessionController extends ControllerBase
     {
         $this->flash->error("account was not found");
         // return $this->dispatcher->forward(array(
-        //     "controller" => "session",
+        //     "controller" => "admin",
         //     "action" => "index"
         //     ));
     }
