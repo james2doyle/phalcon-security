@@ -1,9 +1,9 @@
 
-<?php echo $this->getContent() ?>
+{{ get_content() }}
 
 <div align="center">
     <div align="right">
-        <?php echo $this->tag->linkTo(array("users/new", "Create users")) ?>
+        {{ link_to("users/new", "Create users") }}
     </div>
     <h1>Login</h1>
 
@@ -13,9 +13,9 @@
         <p style="color: #C90017">You are not logged in!</p>
     <?php endif ?>
 
-    <?php echo $this->tag->form(array("admin/login", "autocomplete" => "off")) ?>
+    {{ form('admin/login', 'method': 'post', 'autocomplete': 'off') }}
 
-        <input type="hidden" name="<?php echo $this->security->getTokenKey() ?>" value="<?php echo $this->security->getToken() ?>"/>
+        <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}"/>
 
         <table>
             <tr>
@@ -23,7 +23,7 @@
                     <label for="username">Username</label>
                 </td>
                 <td align="left">
-                    <?php echo $this->tag->textField(array("username", "size" => 30)) ?>
+                    {{ text_field("username", "size": 30) }}
                 </td>
             </tr>
             <tr>
@@ -31,15 +31,16 @@
                     <label for="password">Password</label>
                 </td>
                 <td align="left">
-                    <?php echo $this->tag->passwordField(array("password", "size" => 30)) ?>
+                    {{ password_field("password", "size": 30) }}
                 </td>
             </tr>
 
             <tr>
                 <td></td>
-                <td><?php echo $this->tag->submitButton("Login") ?><?php if ($this->session->get('auth-identity')): ?> or <a href="admin/logout">Logout</a><?php endif; ?></td>
+                <td>{{ submit_button("Login") }}<?php if ($this->session->get('auth-identity')): ?> or <a href="admin/logout">Logout</a><?php endif; ?></td>
             </tr>
         </table>
 
+    {{ end_form() }}
 
 </div>
