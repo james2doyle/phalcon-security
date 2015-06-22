@@ -6,6 +6,17 @@ use Phalcon\Paginator\Adapter\Model as Paginator;
 class UsersController extends ControllerBase
 {
 
+    public function onConstruct()
+    {
+        if (!$this->session->get('auth-identity')) {
+            $this->flash->error("you must be logged in to access this area");
+            return $this->dispatcher->forward(array(
+                "controller" => "admin",
+                "action" => "index"
+            ));
+        }
+    }
+
     /**
      * Index action
      */
